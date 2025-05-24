@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c00hxaieq7gdk"]
+
+[ext_resource type="Script" uid="uid://qdaq6po7xtrc" path="res://Assets/Scripts/character_body_3d.gd" id="1_4g7o2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4g7o2"]
+size = Vector3(0.328125, 0.279297, 0.101318)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gqswi"]
+width = 32
+height = 32
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_4g7o2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4g7o2")
+
+[node name="PlayerCharacter" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="PlayerCharacter"]
+texture = SubResource("NoiseTexture2D_gqswi")
