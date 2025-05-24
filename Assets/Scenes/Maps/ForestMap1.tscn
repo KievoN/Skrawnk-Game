@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdpg3w6ojy18"]
+
+[ext_resource type="PackedScene" uid="uid://c7214pvos60nu" path="res://Assets/Models/Maps/Forest/TestMap.glb" id="1_k6h0h"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TestMap" parent="." instance=ExtResource("1_k6h0h")]
