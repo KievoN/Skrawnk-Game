@@ -5,3 +5,4 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="TestMap" parent="." instance=ExtResource("1_k6h0h")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
