@@ -3,19 +3,23 @@
 [ext_resource type="Script" uid="uid://qdaq6po7xtrc" path="res://Assets/Scripts/character_body_3d.gd" id="1_4g7o2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4g7o2"]
-size = Vector3(0.328125, 0.279297, 0.101318)
+size = Vector3(0.31665, 0.457092, 0.15625)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gqswi"]
 width = 32
-height = 32
+height = 48
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_4g7o2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07724, 0)
 shape = SubResource("BoxShape3D_4g7o2")
 
 [node name="PlayerCharacter" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="PlayerCharacter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815918, 0)
+transparent = false
+shaded = true
 texture = SubResource("NoiseTexture2D_gqswi")
