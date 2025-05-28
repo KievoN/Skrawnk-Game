@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://civtn8h6ykqwd"]
+
+[ext_resource type="Shader" uid="uid://copkqrgvqcq1k" path="res://Assets/Shaders/scope_blur.gdshader" id="1_ap6rk"]
+[ext_resource type="Texture2D" uid="uid://4mhnltl8njrr" path="res://Assets/Images/Scope.png" id="2_6psob"]
+
+[resource]
+shader = ExtResource("1_ap6rk")
+shader_parameter/lod = 2.5
+shader_parameter/scope_texture = ExtResource("2_6psob")

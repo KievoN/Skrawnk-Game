@@ -1,26 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://3kigdipc52ti"]
+[gd_scene load_steps=3 format=3 uid="uid://3kigdipc52ti"]
 
 [ext_resource type="PackedScene" uid="uid://cdpg3w6ojy18" path="res://Assets/Scenes/Maps/ForestMap1.tscn" id="1_vqorg"]
 [ext_resource type="PackedScene" uid="uid://c00hxaieq7gdk" path="res://Assets/Scenes/PlayerCharacter.tscn" id="2_qogh2"]
 
-[sub_resource type="Environment" id="Environment_vqorg"]
-background_mode = 1
-background_color = Color(0.726073, 0.930202, 0.995187, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.846626, 0.821665, 0.695789, 1)
-
 [node name="PlayerTestMap" type="Node3D"]
 
 [node name="Node3D" parent="." instance=ExtResource("1_vqorg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.619971, -0.742614, 0.253298, 0, 0.322827, 0.946458, -0.784625, -0.586776, 0.200144, 1.96821, 2.18491, 7.15735)
 shadow_enabled = true
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("2_qogh2")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1.45276, 0.208709, 0.0131063)
-
-[node name="Camera3D" type="Camera3D" parent="PlayerCharacter"]
-transform = Transform3D(0.999945, 0.00690301, -0.00793097, 2.32831e-10, 0.754299, 0.656532, 0.0105144, -0.656495, 0.754257, -0.0517759, 2.31424, 2.84744)
-environment = SubResource("Environment_vqorg")
-fov = 60.0
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_qogh2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.11682, 4.53667, -0.133059)

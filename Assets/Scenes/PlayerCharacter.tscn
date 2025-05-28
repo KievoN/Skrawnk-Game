@@ -1,25 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://c00hxaieq7gdk"]
+[gd_scene load_steps=10 format=3 uid="uid://c00hxaieq7gdk"]
 
 [ext_resource type="Script" uid="uid://qdaq6po7xtrc" path="res://Assets/Scripts/character_body_3d.gd" id="1_4g7o2"]
+[ext_resource type="Script" uid="uid://cgo378ko3g1bw" path="res://Assets/Scripts/gun_controller.gd" id="2_k6u4q"]
+[ext_resource type="Texture2D" uid="uid://4mhnltl8njrr" path="res://Assets/Images/Scope.png" id="3_fbdiw"]
+[ext_resource type="Texture2D" uid="uid://cigxx15c012wo" path="res://Assets/Images/Scope_Border.png" id="4_2wmkp"]
+[ext_resource type="Material" uid="uid://civtn8h6ykqwd" path="res://Assets/Materials/Scope_Blur.tres" id="4_rfjfh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4g7o2"]
-size = Vector3(0.31665, 0.457092, 0.15625)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4g7o2"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gqswi"]
-width = 32
-height = 48
+[sub_resource type="Environment" id="Environment_4g7o2"]
+background_mode = 1
+background_color = Color(0.360801, 0.457688, 0.492561, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4g7o2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rfjfh"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_4g7o2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07724, 0)
-shape = SubResource("BoxShape3D_4g7o2")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_4g7o2")
 
-[node name="PlayerCharacter" type="Node3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+environment = SubResource("Environment_4g7o2")
+current = true
+fov = 80.0
 
-[node name="Sprite3D" type="Sprite3D" parent="PlayerCharacter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0815918, 0)
-transparent = false
-shaded = true
-texture = SubResource("NoiseTexture2D_gqswi")
+[node name="GunController" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126198, -0.130888, -0.262103)
+script = ExtResource("2_k6u4q")
+
+[node name="Gun_MeshInstance3D" type="MeshInstance3D" parent="Camera3D/GunController"]
+transform = Transform3D(0.0749811, -0.00170477, 0.00775524, 0.000867053, 0.149982, -0.00400163, -0.00144541, 0.00153385, 0.399905, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_4g7o2")
+skeleton = NodePath("../..")
+
+[node name="Control" type="Control" parent="Camera3D/GunController"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scope" type="TextureRect" parent="Camera3D/GunController/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(576, 324)
+texture = ExtResource("3_fbdiw")
+stretch_mode = 3
+
+[node name="BlurPanelBorder" type="TextureRect" parent="Camera3D/GunController/Control/Scope"]
+material = ExtResource("4_rfjfh")
+layout_mode = 0
+offset_left = -705.333
+offset_top = -700.0
+offset_right = 1854.67
+offset_bottom = 1348.0
+texture = ExtResource("4_2wmkp")
+stretch_mode = 3
+
+[node name="CentreCrosshair" type="TextureRect" parent="Camera3D/GunController/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(576, 324)
+texture = SubResource("CanvasTexture_rfjfh")
+stretch_mode = 3
