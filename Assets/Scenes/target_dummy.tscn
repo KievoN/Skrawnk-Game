@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://brvepsbh86xbb"]
+
+[ext_resource type="Script" uid="uid://c1ym6bssbkk5q" path="res://Assets/Scripts/shootable.gd" id="1_310se"]
+[ext_resource type="Material" uid="uid://dv034tef3o0h7" path="res://Assets/Materials/DummyHead.tres" id="1_hh8et"]
+[ext_resource type="Material" uid="uid://da0pobdbr38cp" path="res://Assets/Materials/DummyBody.tres" id="3_jc4il"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_310se"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_310se"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ra205"]
+
+[node name="TargetDummy" type="Node3D"]
+transform = Transform3D(0.478665, 0, -0.144499, 0, 1, 0, 0.144499, 0, 0.478665, 0, 0, 0)
+
+[node name="HeadMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.25, 0, 0, 0, 0.85, 0, 1.66896, 0)
+mesh = SubResource("CapsuleMesh_310se")
+surface_material_override/0 = ExtResource("1_hh8et")
+
+[node name="Head" type="StaticBody3D" parent="HeadMesh"]
+script = ExtResource("1_310se")
+damage_mult = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadMesh/Head"]
+transform = Transform3D(0.999999, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 0.999999, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_310se")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.00296427, 0.718515, -0.0035635)
+mesh = SubResource("CapsuleMesh_310se")
+surface_material_override/0 = ExtResource("3_jc4il")
+
+[node name="Body" type="StaticBody3D" parent="BodyMesh"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("1_310se")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyMesh/Body"]
+shape = SubResource("CapsuleShape3D_ra205")

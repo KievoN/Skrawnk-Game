@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://o4koefrtxigw"]
+
+[ext_resource type="Texture2D" uid="uid://b3voky61pmaqu" path="res://Assets/Images/BulletHole.png" id="1_8cc3y"]
+
+[node name="BulletHoleDecal" type="Decal"]
+size = Vector3(0.1, 0.05, 0.1)
+texture_albedo = ExtResource("1_8cc3y")
+modulate = Color(0, 0, 0, 1)
+upper_fade = 0.05
+lower_fade = 0.05

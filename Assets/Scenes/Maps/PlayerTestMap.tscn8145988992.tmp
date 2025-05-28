@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://3kigdipc52ti"]
+[gd_scene load_steps=5 format=3 uid="uid://3kigdipc52ti"]
 
 [ext_resource type="PackedScene" uid="uid://cdpg3w6ojy18" path="res://Assets/Scenes/Maps/ForestMap1.tscn" id="1_vqorg"]
 [ext_resource type="PackedScene" uid="uid://c00hxaieq7gdk" path="res://Assets/Scenes/PlayerCharacter.tscn" id="2_qogh2"]
 [ext_resource type="PackedScene" uid="uid://brvepsbh86xbb" path="res://Assets/Scenes/target_dummy.tscn" id="3_qogh2"]
+[ext_resource type="PackedScene" uid="uid://o4koefrtxigw" path="res://Assets/Scenes/bullet_hole_decal.tscn" id="4_b5e3b"]
 
 [node name="PlayerTestMap" type="Node3D"]
 
@@ -17,4 +18,8 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.11682, 4.53667, -0.133059)
 
 [node name="TargetDummy" parent="." instance=ExtResource("3_qogh2")]
-transform = Transform3D(-0.147461, 0, -0.201879, 0, 0.5, 0, 0.201879, 0, -0.147461, 20.8463, 0.0140382, 7.57237)
+transform = Transform3D(-0.221192, 0, -0.302819, 0, 0.75, 0, 0.302819, 0, -0.221192, 20.8463, 0.0140382, 7.57237)
+
+[node name="BulletHoleDecal" parent="." instance=ExtResource("4_b5e3b")]
+transform = Transform3D(0.999999, -0.000308733, -2.52926e-05, 0.00028084, 0.869133, 0.494578, -0.00013071, -0.494577, 0.869134, 8.52985, 0.221214, 6.39482)
+size = Vector3(0.1, 0.01, 0.1)

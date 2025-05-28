@@ -9,7 +9,7 @@ const SPEED = 1.25
 const RUN_SPEED = 2
 const SCOPED_SPEED = 0.5
 
-const JUMP_VELOCITY = 2.5
+const JUMP_VELOCITY = 0.0
 
 # Camera limits
 const TILT_LOWER_LIMIT = -89
